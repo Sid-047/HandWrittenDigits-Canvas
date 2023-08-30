@@ -10,6 +10,8 @@ import matplotlib.pyplot as plt
 a=0
 tk=Tk()
 img_l_=[]
+if not os.path.isdir("testDigits"):
+   os.makedirs("testDigits")
 os.chdir("testDigits")
 img_l=glob.glob("*.jpg")
 for i in img_l:
