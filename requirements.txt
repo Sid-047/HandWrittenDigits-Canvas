@@ -2,3 +2,4 @@ opencv-python==4.8.0.76
 pyautogui==0.9.54
 numpy==1.25.2
 matplotlib==3.7.2
+colorama==0.4.6
