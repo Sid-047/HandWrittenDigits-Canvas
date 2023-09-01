@@ -1,11 +1,11 @@
 import os
 import cv2
 import glob
-import time
 import pyautogui
 import numpy as np
 from tkinter import *
 import matplotlib.pyplot as plt
+from colorama import Fore, Style
 
 a=0
 tk=Tk()
@@ -49,11 +49,11 @@ def img_con(event):
     w, h = c.winfo_width(), c.winfo_height()
     pyautogui.screenshot(str(a)+'.jpg', region=(x+m, y+m, w-m*2, h-m*2))
     img=cv2.imread(str(a)+'.jpg', cv2.IMREAD_GRAYSCALE)
-    print(np.shape(img))
+    print(Fore.BLUE+Style.BRIGHT+str(np.shape(img))+Fore.RESET)
     img_=cv2.resize(img, dsize=(28,28), interpolation=cv2.INTER_AREA)
     print(np.shape(img_))
     cv2.imwrite(str(a)+'.jpg', img_)
-    print("---->"+str(a)+'.jpg')
+    print("---->"+Fore.BLUE+Style.BRIGHT+str(a)+'.jpg'+Fore.RESET)
     ar=np.asarray(img_)
     plt.figure(figsize=[10,5])
     plt.subplot(121)
