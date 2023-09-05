@@ -35,7 +35,7 @@
    
 4. Run the Tool:
     ```sh
-    python canvas.py
+    python digitCanvas.py
     ```
 
 5. Boom! That is it, Start Writing the Digits.
