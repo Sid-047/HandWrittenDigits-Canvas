@@ -40,6 +40,16 @@
 
 5. Boom! That is it, Start Writing the Digits.
 
+## Tool Controls
+1. Mouse Right Button
+   Hold the Key to draw in the Canvas.
+   
+2. Mouse Left Button
+   Left click to reset the Canvas.
+   
+3. Mouse Scroll Button
+   Click the scroll button to save the Canvas as JPG image.
+   
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
