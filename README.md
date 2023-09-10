@@ -12,6 +12,7 @@
 
 - [Installation](#installation)
 - [Usage](#usage)
+- [Controls](#Controls)
 - [License](#license)
 
 ## Installation
@@ -40,7 +41,8 @@
 
 5. Boom! That is it, Start Writing the Digits.
 
-## Tool Controls
+## Controls
+
 1. Mouse Right Button
    Hold the Key to draw in the Canvas.
    
