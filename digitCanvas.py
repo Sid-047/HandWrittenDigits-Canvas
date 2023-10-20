@@ -16,7 +16,7 @@ os.chdir("testDigits")
 img_l=glob.glob("*.jpg")
 for i in img_l:
     try:
-        img_l_.append(int(i[:-4]))
+        img_l_.append(int(i.split(".")[0]))
     except:
         pass
 img_l_.sort()
