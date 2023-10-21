@@ -1,11 +1,11 @@
 import os
 import cv2
 import glob
-import pyautogui
 import numpy as np
 from tkinter import *
 import matplotlib.pyplot as plt
 from colorama import Fore, Style
+from PIL import Image, ImageDraw
 
 a=0
 tk=Tk()
@@ -30,24 +30,35 @@ tk.title("Digit - "+str(a)[-1])
 c=Canvas(tk, width=280, height=280, bg='black')
 c.pack(expand=NO)
 
+img = Image.new("L", (280, 280), "black")
+draw = ImageDraw.Draw(img)
+
 def fig(event):
     x1,y1=(event.x-15),(event.y-15)
     x2,y2=(event.x+15),(event.y+15)
-    c.create_oval(x1+4, y1+4, x2+4, y2+4, fill='#dadada', outline='#dadada')
-    c.create_oval(x1, y1, x2, y2, fill='white', outline='white')
+    c.create_oval(x1+4, y1+4, x2+4, y2+4, fill='#dadada', outline='#dadada', tags='overlay')
+    draw.ellipse([x1+4, y1+4, x2+4, y2+4], fill='#dadada', outline='#dadada')
+    c.create_oval(x1, y1, x2, y2, fill='white', outline='white', tags='overlay_')
+    draw.ellipse([x1, y1, x2, y2], fill='white', outline='white')
 
 def del_con(event):
     tk.title("Digit - "+str(a)[-1])
     plt.close('all')
-    c.delete('all')
+    c.delete('overlay_')
+    c.delete('overlay')
 
 def img_con(event):
     global a
     global ar
-    m = 3
-    x, y = c.winfo_rootx(), c.winfo_rooty()
-    w, h = c.winfo_width(), c.winfo_height()
-    pyautogui.screenshot(str(a)+'.jpg', region=(x+m, y+m, w-m*2, h-m*2))
+
+    outImg = str(a)+'.jpg'
+    print(Fore.BLUE+Style.BRIGHT+"---->"+outImg+Fore.RESET)
+    img_ar = np.array(img)
+    print('----------------->',img_ar.shape)
+    plt.imshow(img_ar, cmap='gray')
+    plt.show(block=False)
+    img.save(outImg)
+    
     img=cv2.imread(str(a)+'.jpg', cv2.IMREAD_GRAYSCALE)
     print(Fore.BLUE+Style.BRIGHT+str(np.shape(img))+Fore.RESET)
     img_=cv2.resize(img, dsize=(28,28), interpolation=cv2.INTER_AREA)
